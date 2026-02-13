@@ -4,8 +4,206 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home Screen</title>
+    <!-- Daisy Ui -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styling -->
+    <style>
+      .outfit {
+        font-family: "Outfit", sans-serif;
+      }
+    </style>
   </head>
-  <body>
-    <h1>Welcome to Payoo</h1>
+  <body class="bg-slate-800 outfit">
+    <section class="max-w-md min-h-screen mx-auto py-6 bg-[#f7f7f7]">
+      <!-- Top Section -->
+      <header>
+        <nav class="flex justify-between items-center ml-2.5 mr-2.5">
+          <div class="flex items-center gap-2">
+            <img class="w-16" src="/assets/images/Group.png" alt="Not Found" />
+
+            <!-- amount + label column -->
+            <div class="flex flex-col">
+              <h1 class="text-lg font-semibold">$ 5600</h1>
+              <p class="text-[12px] text-gray-500">Available Balance</p>
+            </div>
+          </div>
+
+          <button class="btn rounded-md text-red-400">Logout</button>
+        </nav>
+
+        <section class="mt-8 ml-2.5 mr-2.5">
+          <h1 class="text-[18px] font-semibold">Welcome to Payoo!</h1>
+          <p class="text-[14px]">
+            Enjoy easy and convenient financial services with us. <br />
+            Cashout charge is low and
+          </p>
+
+          <!-- All Payments Sections -->
+          <div class="cards grid grid-cols-3 mt-6 gap-3">
+            <!-- Add Money Card -->
+            <div
+              class="box border border-blue-700 rounded-xl p-3 text-center bg-blue-50"
+            >
+              <img
+                class="w-8 mx-auto"
+                src="./assets/images/wallet1.png"
+                alt="Not Found"
+              />
+              <h3 class="text-blue-500">Add Money</h3>
+            </div>
+
+            <!-- Send Money Card -->
+            <div class="box border border-[#636363] rounded-xl p-3 text-center">
+              <img
+                class="w-8 mx-auto"
+                src="./assets/images/send1.png"
+                alt="Not Found"
+              />
+              <h3>Send money</h3>
+            </div>
+
+            <!-- Cash Out Card -->
+            <div class="box border border-[#636363] rounded-xl p-3 text-center">
+              <img
+                class="w-8 mx-auto"
+                src="./assets/images/transaction1.png"
+                alt="Not Found"
+              />
+              <h3>Cash out</h3>
+            </div>
+
+            <!-- Payment Card-->
+            <div class="box border border-[#636363] rounded-xl p-3 text-center">
+              <img
+                class="w-8 mx-auto"
+                src="./assets/images/purse1.png"
+                alt="Not Found"
+              />
+              <h3>Payment</h3>
+            </div>
+
+            <!-- Pay Bill Card -->
+            <div class="box border border-[#636363] rounded-xl p-3 text-center">
+              <img
+                class="w-8 mx-auto"
+                src="./assets/images/bonus1.png"
+                alt="Not Found"
+              />
+              <h3>Pay Bill</h3>
+            </div>
+
+            <!-- Transfer -->
+            <div class="box border border-[#636363] rounded-xl p-3 text-center">
+              <img
+                class="w-8 mx-auto"
+                src="./assets/images/money1.png"
+                alt="Not Found"
+              />
+              <h3>Transfer</h3>
+            </div>
+          </div>
+
+          <!-- Add Money Section -->
+          <section class="mt-5">
+            <h2 class="text-[#0874F2] font-semibold ml-2.5">Add Money</h2>
+
+            <!-- Form -->
+            <div class="">
+              <div class="hero-content flex-col lg:flex-row-reverse">
+                <div
+                  class="card bg-base-100 rounded-2xl w-full max-w-sm shrink-0 shadow-2xl"
+                >
+                  <!-- Form -->
+                  <form class="card-body">
+                    <fieldset class="fieldset">
+                      <!-- Select Bank - DropDown -->
+                      <label
+                        class="label text-[#080808] opacity-70 text-base mb-0.5"
+                        >Select A Bank</label
+                      >
+                      <select
+                        class="select h-11 rounded-3xl bg-[#F4F5F7] border-none pl-4.5"
+                      >
+                        <option class="text-[#080808]" disabled selected>
+                          Select Bank
+                        </option>
+                        <option>EBL</option>
+                        <option>DBBL</option>
+                        <option>Bank Asia</option>
+                        <option>Brac Bank</option>
+                        <option>Southeast Bank</option>
+                        <option>AB Bank</option>
+                        <option>Bkash</option>
+                        <option>Nagad</option>
+                      </select>
+
+                      <!-- Bank Account Number - 11 Digit -->
+                      <label
+                        class="label text-[#080808] opacity-70 text-base mt-2 mb-0.5"
+                        >Bank Account Number</label
+                      >
+                      <input
+                        id="account-pin"
+                        type="PIN"
+                        class="input h-11 rounded-3xl bg-[#F4F5F7] border-none pl-4.5"
+                        placeholder="Enter 11 digit account number"
+                        required
+                      />
+
+                      <!-- Amount to Add -->
+                      <label
+                        class="label text-[#080808] opacity-70 text-base mb-0.5"
+                        >Amount to Add</label
+                      >
+                      <input
+                        id="select-bank"
+                        type="Number"
+                        class="input h-11 rounded-3xl bg-[#F4F5F7] border-none pl-4.5"
+                        placeholder="Add Amount to withdraw"
+                        required
+                      />
+
+                      <!-- Bank Account Number - 11 Digit -->
+                      <label
+                        class="label text-[#080808] opacity-70 text-base mt-2 mb-0.5"
+                        >Pin Number</label
+                      >
+                      <input
+                        id="account-pin"
+                        type="PIN"
+                        class="input h-11 rounded-3xl bg-[#F4F5F7] border-none pl-4.5"
+                        placeholder="Enter 4 digit pin number"
+                        required
+                      />
+
+                      <button
+                        id="login-btn"
+                        class="btn h-11 bg-[#0874F2] mt-2 rounded-3xl text-[17px] text-white font-medium"
+                      >
+                        Add Money
+                      </button>
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+      </header>
+    </section>
   </body>
 </html>
