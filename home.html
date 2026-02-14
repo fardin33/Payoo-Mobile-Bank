@@ -37,8 +37,10 @@
 
             <!-- amount + label column -->
             <div class="flex flex-col">
-              <h1 class="text-lg font-semibold">$ 5600</h1>
-              <p class="text-[12px] text-gray-500">Available Balance</p>
+              <h1 class="text-xl font-semibold">
+                $<span id="main-balance"> 5600</span>
+              </h1>
+              <p class="text-[13px] text-gray-500">Available Balance</p>
             </div>
           </div>
 
@@ -56,34 +58,38 @@
           <div class="cards grid grid-cols-3 mt-6 gap-3">
             <!-- Add Money Card -->
             <div
-              class="box border border-blue-700 rounded-xl p-3 text-center bg-blue-50"
+              id="add-money-box"
+              class="box border rounded-xl p-3 text-center"
             >
               <img
                 class="w-8 mx-auto"
                 src="./assets/images/wallet1.png"
                 alt="Not Found"
               />
-              <h3 class="text-blue-500">Add Money</h3>
+              <h3 id="add-money-text">Add Money</h3>
             </div>
 
-            <!-- Send Money Card -->
-            <div class="box border border-[#636363] rounded-xl p-3 text-center">
+            <!-- cash out Card -->
+            <div
+              id="cash-out-box"
+              class="box border border-[#636363] rounded-xl p-3 text-center"
+            >
               <img
                 class="w-8 mx-auto"
                 src="./assets/images/send1.png"
                 alt="Not Found"
               />
-              <h3>Send money</h3>
+              <h3 id="cash-out-text">Cash out</h3>
             </div>
 
-            <!-- Cash Out Card -->
+            <!-- send money Card -->
             <div class="box border border-[#636363] rounded-xl p-3 text-center">
               <img
                 class="w-8 mx-auto"
                 src="./assets/images/transaction1.png"
                 alt="Not Found"
               />
-              <h3>Cash out</h3>
+              <h3>Send money</h3>
             </div>
 
             <!-- Payment Card-->
@@ -117,12 +123,36 @@
             </div>
           </div>
 
+          <!-- Transaction History Section -->
+          <section id="transaction-history" class="mt-5">
+            <h2 class="text-[#0874F2] font-semibold ml-2.5">
+              Transaction History
+            </h2>
+
+            <div class="bg-white rounded-2xl shadow-xl p-4 mt-3 space-y-3">
+              <div class="flex justify-between border-b pb-2">
+                <p class="font-medium">Added Money</p>
+                <p class="text-green-500">+$500</p>
+              </div>
+
+              <div class="flex justify-between border-b pb-2">
+                <p class="font-medium">Cash Out</p>
+                <p class="text-red-500">-$200</p>
+              </div>
+
+              <div class="flex justify-between">
+                <p class="font-medium">Send Money</p>
+                <p class="text-red-500">-$100</p>
+              </div>
+            </div>
+          </section>
+
           <!-- Add Money Section -->
-          <section class="mt-5">
+          <section id="Add-Money" class="mt-5 hidden">
             <h2 class="text-[#0874F2] font-semibold ml-2.5">Add Money</h2>
 
             <!-- Form -->
-            <div class="">
+            <div class="Add-Money-Form">
               <div class="hero-content flex-col lg:flex-row-reverse">
                 <div
                   class="card bg-base-100 rounded-2xl w-full max-w-sm shrink-0 shadow-2xl"
@@ -157,8 +187,9 @@
                         >Bank Account Number</label
                       >
                       <input
-                        id="account-pin"
-                        type="PIN"
+                        id="account-number"
+                        value="11111111111"
+                        type="number"
                         class="input h-11 rounded-3xl bg-[#F4F5F7] border-none pl-4.5"
                         placeholder="Enter 11 digit account number"
                         required
@@ -170,8 +201,8 @@
                         >Amount to Add</label
                       >
                       <input
-                        id="select-bank"
-                        type="Number"
+                        id="amount"
+                        type="number"
                         class="input h-11 rounded-3xl bg-[#F4F5F7] border-none pl-4.5"
                         placeholder="Add Amount to withdraw"
                         required
@@ -183,15 +214,15 @@
                         >Pin Number</label
                       >
                       <input
-                        id="account-pin"
-                        type="PIN"
+                        id="pin"
+                        type="number"
                         class="input h-11 rounded-3xl bg-[#F4F5F7] border-none pl-4.5"
                         placeholder="Enter 4 digit pin number"
                         required
                       />
 
                       <button
-                        id="login-btn"
+                        id="add-money"
                         class="btn h-11 bg-[#0874F2] mt-2 rounded-3xl text-[17px] text-white font-medium"
                       >
                         Add Money
@@ -202,8 +233,78 @@
               </div>
             </div>
           </section>
+
+          <!-- Cashout Section Star Form here -->
+          <section id="cash-out" class="mt-5 hidden">
+            <h2 class="text-[#0874F2] font-semibold ml-2.5">Cash Out</h2>
+            <div class="cashout-Form">
+              <div class="hero-content flex-col lg:flex-row-reverse">
+                <div
+                  class="card bg-base-100 rounded-2xl w-full max-w-sm shrink-0 shadow-2xl"
+                >
+                  <!-- Form -->
+                  <form class="card-body">
+                    <fieldset class="fieldset">
+                      <!-- Bank Account Number - 11 Digit -->
+                      <label
+                        class="label text-[#080808] opacity-70 text-base mt-2 mb-0.5"
+                        >Agent Number</label
+                      >
+                      <input
+                        id="account-number"
+                        value="11111111111"
+                        type="number"
+                        class="input h-11 rounded-3xl bg-[#F4F5F7] border-none pl-4.5"
+                        placeholder="Enter 11 digit account number"
+                        required
+                      />
+
+                      <!-- Amount to Add -->
+                      <label
+                        class="label text-[#080808] opacity-70 text-base mb-0.5"
+                        >Amount</label
+                      >
+                      <input
+                        id="amount"
+                        type="number"
+                        class="input h-11 rounded-3xl bg-[#F4F5F7] border-none pl-4.5"
+                        placeholder="Add Amount to withdraw"
+                        required
+                      />
+
+                      <!-- Bank Account Number - 11 Digit -->
+                      <label
+                        class="label text-[#080808] opacity-70 text-base mt-2 mb-0.5"
+                        >Pin Number</label
+                      >
+                      <input
+                        id="pin"
+                        type="number"
+                        class="input h-11 rounded-3xl bg-[#F4F5F7] border-none pl-4.5"
+                        placeholder="Enter 4 digit pin number"
+                        required
+                      />
+
+                      <button
+                        id="add-money"
+                        class="btn h-11 bg-[#0874F2] mt-2 rounded-3xl text-[17px] text-white font-medium"
+                      >
+                        Cash Out
+                      </button>
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
         </section>
       </header>
     </section>
+
+    <!-- js linkup : Add money -->
+    <script src="./script/add_money.js"></script>
+
+    <!-- js linkup : Toggle  -->
+    <script src="./script/toggle.js"></script>
   </body>
 </html>
